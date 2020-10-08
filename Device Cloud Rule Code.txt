@@ -1,0 +1,27 @@
+Device Cloud Rule Code
+
+{
+    "topicRulePayload": {
+        "sql": "SELECT * FROM '$aws/things/Device/shadow/update'", 
+        "ruleDisabled": false, 
+        "awsIotSqlVersion": "2016-03-23",
+        "actions": [
+            {
+                "republish": {
+                    "topic": "RinTopic",
+                    "qos": 1,
+                    "roleArn": "arn:aws:iam::123456789012:role/aws_iot_republish"
+                }
+            }
+        ]
+    }
+
+MQTT Endpoints:azs4o0fo5e3wd-ats.iot.ap-south-1.amazonaws.com
+
+MQTT topics: Remote:RinTopic
+             Device:$aws/things/Device/shadow/update
+
+qos=1
+
+Return Topics: Remote: DinTopic
+
